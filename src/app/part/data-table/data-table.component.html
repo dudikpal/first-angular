@@ -1,0 +1,48 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>{{cols[0].text}}</th>
+    <th>{{cols[1].text}}</th>
+    <th>{{cols[2].text}}</th>
+    <th>{{cols[3].text}}</th>
+    <th>{{cols[4].text}}</th>
+    <th>{{cols[5].text}}</th>
+    <th>action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      {{driver.id}}
+    </td>
+    <td>
+      <app-data-cell [cellValue] = "driver.name"></app-data-cell>
+    </td>
+    <td>
+      <app-data-cell [cellValue] = "driver.email"></app-data-cell>
+    </td>
+    <td>
+      <app-data-cell [cellValue] = "driver.phone"></app-data-cell>
+    </td>
+    <td>
+      <app-data-cell [cellValue] = "driver.city"></app-data-cell>
+    </td>
+    <td>
+      <app-data-cell [cellValue] = "driver.address"></app-data-cell>
+    </td>
+    <td>
+      <div class="btn-group">
+        <button class="btn btn-info"
+        (click)="onUpdate('update')">
+          <i class="fa fa-pencil"></i>
+        </button>
+        <button class="btn btn-danger"
+        (click)="onDelete('delete')">
+          <i [class]="deleteIconClass"></i>
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
