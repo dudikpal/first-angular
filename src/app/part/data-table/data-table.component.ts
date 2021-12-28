@@ -10,6 +10,10 @@ export class DataTableComponent implements OnInit {
 
   @Input() list!: any[];
   @Input() cols!: any[];
+  @Input() phraseString!: string;
+  phraseKey: string = 'notset';
+
+
 
   constructor(
     private baseService: BaseService

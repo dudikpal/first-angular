@@ -1,3 +1,24 @@
-<input type="text"
+<span [ngSwitch]="col.type">
+
+<span *ngSwitchCase="'plain'">
+  {{ cellValue }}
+</span>
+
+<select
+  class="form-control"
+  [(ngModel)]="cellValue"
+  *ngSwitchCase="'select'">
+  <option
+    *ngFor="let option of col.options"
+    [value]="option.value">
+    {{ option.text }}
+  </option>
+</select>
+
+<input
+  *ngSwitchDefault
+  [type]="col.type"
        [(ngModel)]="cellValue"
        class="form-control">
+
+</span>

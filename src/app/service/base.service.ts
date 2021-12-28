@@ -12,9 +12,17 @@ export class BaseService {
         id: 1,
         name: 'John Doe',
         email: 'emil@emil.fg',
-        phone: '+36555-654',
-        city: 'Lorien',
+        phone: 36555654,
+        city: "bp",
         address: 'kon str. 3.'
+      },
+      {
+        id: 2,
+        name: '2John Doe',
+        email: '2emil@emil.fg',
+        phone: 36555-654,
+        city: 'la',
+        address: '2kon str. 3.'
       }
     ],
     vehicles: [
