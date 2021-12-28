@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BaseService} from "../../service/base.service";
 
 @Component({
@@ -8,24 +8,16 @@ import {BaseService} from "../../service/base.service";
 })
 export class DataTableComponent implements OnInit {
 
-  cols: {key: string, text: string}[] = [
-    {key: 'id', text: '#'},
-    {key: 'name', text: 'Name'},
-    {key: 'email', text: 'Email'},
-    {key: 'phone', text: 'Phone'},
-    {key: 'city', text: 'City'},
-    {key: 'address', text: 'Address'}
-  ];
-
-  driver: any = {};
+  @Input() list!: any[];
+  @Input() cols!: any[];
 
   constructor(
     private baseService: BaseService
   ) {
   }
 
-  ngOnInit(): void {
-    this.driver = this.baseService.getAll('drivers')[0];
+  ngOnInit() {
+
   }
 
   onUpdate(event: string): void {
