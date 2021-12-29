@@ -1,4 +1,4 @@
-<div class="input-group mb-3">
+<div class="input-group mb-3 top-row">
   <span class="input-group-text">
     <i class="fa fa-filter" style="margin-right: 20px"></i>
     <select
@@ -30,10 +30,26 @@
   </tr>
   </thead>
   <tbody>
+  <tr>
+    <td *ngFor="let col of cols">
+      <app-data-cell
+        [row]="newRow"
+        [col]="col">
+      </app-data-cell>
+    </td>
+    <td>
+      <div class="btn-group">
+        <button class="btn btn-success"
+                (click)="onCreate(newRow)">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+    </td>
+  </tr>
   <tr *ngFor="let row of list | objectArray:phraseString:phraseKey">
     <td *ngFor="let col of cols">
         <app-data-cell
-          [cellValue]="row[col.key]"
+          [row]="row"
           [col]="col">
         </app-data-cell>
     </td>
@@ -52,4 +68,5 @@
   </tr>
   </tbody>
 </table>
+
 

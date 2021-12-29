@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {BaseService} from "../../service/base.service";
 
 @Component({
@@ -11,8 +11,11 @@ export class DataTableComponent implements OnInit {
   @Input() list!: any[];
   @Input() cols!: any[];
   @Input() phraseString!: string;
-  phraseKey: string = 'notset';
 
+  @Output() create: EventEmitter<any> = new EventEmitter<any>();
+
+  phraseKey: string = 'notset';
+  newRow: any = {};
 
 
   constructor(
@@ -24,6 +27,10 @@ export class DataTableComponent implements OnInit {
 
   }
 
+  onCreate(row): void {
+    this.create.emit(row);
+  }
+
   onUpdate(event: string): void {
     alert('Update');
   }
@@ -31,5 +38,6 @@ export class DataTableComponent implements OnInit {
   onDelete(event: string): void {
     alert(`Click on ${event} button`);
   }
+
 
 }
