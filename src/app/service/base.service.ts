@@ -1,10 +1,14 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class BaseService {
+
+  serverUrl: string = "http://localhost:3000/"
 
   data: any = {
     drivers: [
@@ -47,11 +51,15 @@ export class BaseService {
   };
 
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
   }
 
 
-  getAll(dataType: string): any[] {
-    return this.data[dataType];
+  getAll(dataType: string): Observable<any> {
+    let url = `${this.serverUrl}${dataType}`;
+    console.log(url)
+    return this.http.get(url);
   }
 }

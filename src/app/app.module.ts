@@ -9,6 +9,7 @@ import { DataTableComponent } from './part/data-table/data-table.component';
 import { DataRowComponent } from './part/data-row/data-row.component';
 import { DataCellComponent } from './part/data-cell/data-cell.component';
 import { ObjectArrayPipe } from './pipe/object-array.pipe';
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ObjectArrayPipe } from './pipe/object-array.pipe';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
