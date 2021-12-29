@@ -3,6 +3,9 @@
   <app-data-table
     [list]="driver"
     [cols]="cols"
-    (create)="onCreate($event)"></app-data-table>
+    (create)="onCreate($event)"
+    (update)="onUpdate($event)"
+    (delete)="onDelete($event)"
+  ></app-data-table>
 </div>
 

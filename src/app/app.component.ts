@@ -39,4 +39,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.baseService.create('drivers', row);
   }
 
+  onUpdate(row: any): void {
+    this.baseService.update('drivers', row);
+  }
+
+  onDelete(row: any): void {
+    this.baseService.delete('drivers', row);
+  }
+
 }

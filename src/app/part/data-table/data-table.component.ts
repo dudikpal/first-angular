@@ -13,6 +13,8 @@ export class DataTableComponent implements OnInit {
   @Input() phraseString!: string;
 
   @Output() create: EventEmitter<any> = new EventEmitter<any>();
+  @Output() update: EventEmitter<any> = new EventEmitter<any>();
+  @Output() delete: EventEmitter<any> = new EventEmitter<any>();
 
   phraseKey: string = 'notset';
   newRow: any = {};
@@ -31,12 +33,14 @@ export class DataTableComponent implements OnInit {
     this.create.emit(row);
   }
 
-  onUpdate(event: string): void {
-    alert('Update');
+  onUpdate(row): void {
+    this.update.emit(row);
   }
 
-  onDelete(event: string): void {
-    alert(`Click on ${event} button`);
+  onDelete(row): void {
+    if (confirm('Are you sure?')) {
+      this.delete.emit(row)
+    }
   }
 
 
